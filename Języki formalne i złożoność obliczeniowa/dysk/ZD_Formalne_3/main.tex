@@ -1,0 +1,244 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+\usepackage[margin=1cm]{geometry}
+\usepackage{caption}
+\usepackage{arydshln}
+\usepackage[utf8]{inputenc} % Obsługa polskich znaków
+\usepackage[T1]{fontenc}    % Poprawne wyróżnianie znaków
+\usepackage[polish]{babel}  % Wsparcie dla języka polskiego
+
+
+
+\begin{document}
+
+
+\section*{Zadanie 1}
+
+\begin{minipage}{.2\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$\rightarrow q_0$ & $\{q_1\}$ & $\emptyset$ \\  \hline
+$q_1$ & $\{q_1\}$ & $\{q_1 , q_2\}$ \\ \hline
+$\underline q_2$ & $\emptyset$ & $\emptyset$\\
+\end{tabular}
+\end{minipage}
+
+\vspace{-1.8cm}
+\begin{minipage}{.7\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$q^\emptyset$         & $q^\emptyset$   & $q^\emptyset$ \\  \hline
+$\rightarrow q^0$     & $q^1$         & $q^\emptyset$ \\  \hline
+$q^1$                 & $q^1$         & $q^{12}$ \\ \hline
+$\underline q^2$      & $q^\emptyset$ & $q^\emptyset$ \\ \hline
+
+$q^{01}$              & $q^1$         & $q^{12}$ \\ \hline
+$\underline q^{02}$   & $q^1$         & $q^\emptyset$ \\ \hline
+$\underline q^{12}$   & $q^1$         & $q^{12}$ \\ \hline
+
+$\underline q^{012}$  & $q^1$         & $q^{12}$ \\ 
+
+\end{tabular}
+\end{minipage}
+
+
+\section*{Zadanie 2}
+
+\begin{minipage}{.2\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$\rightarrow q_0$   & $\{q_0 , q_1\}$ & $\emptyset$ \\  \hline
+$q_1$               & $\emptyset$     & $\{q_1 , q_2\}$ \\ \hline
+$\underline q_2$    & $\emptyset$     & $\emptyset$\\
+\end{tabular}
+\end{minipage}
+
+\vspace{-1.8cm}
+\begin{minipage}{.7\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$q^\emptyset$         & $q^\emptyset$   & $q^\emptyset$ \\  \hline
+$\rightarrow q^0$     & $q^{01}$      & $q^\emptyset$ \\  \hline
+$q^1$                 & $q^\emptyset$ & $q^{12}$ \\ \hline
+$\underline q^2$      & $q^\emptyset$ & $q^\emptyset$ \\ \hline
+
+$q^{01}$              & $q^{01}$      & $q^{12}$ \\ \hline
+$\underline q^{02}$   & $q^{01}$      & $q^\emptyset$ \\ \hline
+$\underline q^{12}$   & $q^\emptyset$ & $q^{12}$ \\ \hline
+
+$\underline q^{012}$  & $q^{01}$      & $q^{12}$ \\ 
+
+\end{tabular}
+\end{minipage}
+
+\section*{Zadanie 3 a)}
+
+\begin{minipage}{.2\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$\rightarrow q_0$   & $\{q_0 , q_1\}$ & $\{q_0\}$ \\  \hline
+$q_1$               & $\{q_2\}$       & $\{q_2\}$ \\ \hline
+$q_2$               & $\{q_3\}$       & $\emptyset$\\ \hline
+$\underline q_3$    & $\{q_3\}$       & $\{q_3\}$\\
+\end{tabular}
+\end{minipage}
+
+\vspace{-2cm}
+\begin{minipage}{.7\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$q^\emptyset$         & $q^\emptyset$   & $q^\emptyset$ \\  \hline
+$\rightarrow q^0$     & $q^{01}$      & $q^0$ \\  \hline
+$q^1$                 & $q^2$         & $q^2$ \\ \hline
+$q^2$                 & $q^3$         & $q^\emptyset$ \\ \hline
+$q^3$                 & $q^3$         & $q^3$ \\ \hline
+
+$q^{01}$              & $q^{012}$     & $q^{02}$ \\ \hline
+$q^{02}$              & $q^{013}$     & $q^0$ \\ \hline
+$\underline q^{03}$   & $q^{013}$     & $q^{03}$ \\ \hline
+$q^{12}$              & $q^{23}$      & $q^2$ \\ \hline
+$\underline q^{13}$   & $q^{23}$      & $q^{23}$ \\ \hline
+$\underline q^{23}$   & $q^3$         & $q^3$ \\ \hline
+
+$q^{012}$             & $q^{0123}$    & $q^{02}$ \\ \hline
+$\underline q^{023}$  & $q^{013}$     & $q^{03}$ \\ \hline
+$\underline q^{123}$  & $q^{23}$      & $q^{23}$ \\ \hline
+$\underline q^{013}$  & $q^{0123}$    & $q^{023}$ \\ \hline
+
+$\underline q^{0123}$ & $q^{0123}$    & $q^{023}$ \\ 
+
+\end{tabular}
+\end{minipage}
+\section*{b)}
+
+\begin{minipage}{.2\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$\rightarrow q_0$   & $\{q_0 , q_1\}$ & $\emptyset$ \\  \hline
+$q_1$               & $\emptyset$     & $\{q_1 , q_2\}$ \\ \hline
+$\underline q_2$    & $\{q_1\}$       & $q_2$\\ 
+\end{tabular}
+\end{minipage}
+
+\vspace{-1.8cm}
+\begin{minipage}{.7\linewidth}
+\centering
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$q^\emptyset$         & $q^\emptyset$   & $q^\emptyset$ \\  \hline
+$\rightarrow q^0$     & $q^{01}$      & $q^\emptyset$ \\  \hline
+$q^1$                 & $q^\emptyset$ & $q^{12}$ \\ \hline
+$\underline q^2$      & $q^1$         & $q^2$ \\ \hline
+
+$q^{01}$              & $q^{01}$      & $q^{12}$ \\ \hline
+$\underline q^{02}$   & $q^{01}$      & $q^2$ \\ \hline
+$\underline q^{12}$   & $q^1$         & $q^{12}$ \\ \hline
+
+$\underline q^{012}$  & $q^{01}$      & $q^{12}$ \\ 
+
+\end{tabular}
+\end{minipage}
+
+
+\section*{Zadanie 4}
+E-domknięcie stanu q0 to \{q0 i q2\}. q2 jest stanem końcowym i wychodzi tylko jedna krawędź 'a' do stanu q0. Dlatego aby usunać epsilonowe przejście należy stan q0 zrobić stanem końcowym oraz dodać krawędź 'a' od q0 do q0.
+
+
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,on grid,auto]
+
+    \node[state, initial, accepting] (q_0) {$q_0$};
+    \node[state] (q_1) [right=of q_0] {$q_1$};
+    \node[state, accepting] (q_2) [right=of q_1] {$q_2$};
+
+    \path[->]
+    (q_0) edge [loop above] node {a} ()
+          edge node {b} (q_1)
+    (q_1) edge node {a,b}   (q_2)
+          edge [loop above] node {a}   ()
+    (q_2) edge [bend left=50] node {a} (q_0);
+    
+\end{tikzpicture}
+
+\vspace{1cm}
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$\rightarrow \underline q_0$   & $\{q_0\}$       & $\{q_1\}$ \\  \hline
+$q_1$                          & $\{q_1 , q_2\}$ & $\{q_2\}$ \\ \hline
+$\underline q_2$               & $\{q_0\}$       & $\emptyset$\\ 
+\end{tabular}
+
+
+\section*{Zadanie 5}
+Z epsilonem:
+\begin{tabular}{ c | c | c | c}
+  & a & b & $\epsilon$ \\ 
+\hline
+$\rightarrow q_0$   & $\{q_2\}$   & $\emptyset$  & $\{q_1\}$\\  \hline
+$q_1$               & $\{q_0\}$   & $\emptyset$  & $\emptyset$ \\ \hline
+$\underline q_2$    & $\{q_1\}$   & $\{q_1 , q_2\}$ & $\emptyset$\\ 
+\end{tabular}
+\vspace{1cm}
+
+E-domknięcie stanu q0 to \{q0 i q1\}. q1 jest stanem końcowym oraz wychodzi tylko jednak krawędź 'a' do q0. Dlatego zrobię stan q0 jako końcowy oraz dodam krawędź 'a' z q0 do q0. Tak powinienem pozbyć się epsilonowych przejść.
+\vspace{0.5cm}
+
+\begin{tabular}{ c | c | c}
+  & a & b \\ 
+\hline
+$\rightarrow \underline q_0$   & $\{q_0 , q_2\}$   & $\emptyset$\\  \hline
+$\underline q_1$                          & $\{q_0\}$         & $\emptyset$ \\ \hline
+$q_2$               & $\{q_1\}$         & $\{q_1 , q_2\}$ \\ 
+\end{tabular}
+\vspace{0.5cm}
+
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,on grid,auto]
+
+    \node[state, initial, accepting] (q_0) {$q_0$};
+    \node[state, accepting] (q_1) [right=3cm of q_0] {$q_1$};
+    \node[state] (q_2) [below right=of q_0] {$q_2$};
+
+    \path[->]
+    (q_0) edge [loop above] node {a} ()
+          edge [bend right=30]node {a} (q_2)
+    (q_1) edge node {a}   (q_0)
+    (q_2) edge [bend right=30]node {a,b} (q_1)
+          edge [loop below] node {b} ();
+    
+\end{tikzpicture}
+
+Automat deterministyczny:
+\vspace{-2cm}
+\begin{tabular}{ c | c | c }
+  & a & b \\ 
+\hline
+$q^\emptyset$         & $q^\emptyset$   & $q^\emptyset$ \\  \hline
+$\rightarrow \underline q^0$     & $q^{02}$      & $q^\emptyset$ \\  \hline
+$\underline q^1$                 & $q^0$         & $q^\emptyset$ \\ \hline
+$q^2$      & $q^1$         & $q^{12}$ \\ \hline
+
+$\underline q^{01}$              & $q^{02}$      & $q^\emptyset$ \\ \hline
+$\underline q^{02}$   & $q^{012}$      & $q^{12}$ \\ \hline
+$\underline q^{12}$   & $q^{01}$         & $q^{12}$ \\ \hline
+
+$\underline q^{012}$  & $q^{012}$      & $q^{12}$ \\ 
+
+\end{tabular}
+
+\end{document}
